@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday isha 💕</title>
+
+<style>
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(160deg, #fde2e4, #e0e7ff);
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  color: #333;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  color: pink;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Sparkles */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  animation: sparkle 3s infinite;
+}
+
+@keyframes sparkle {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.vinyl {
+  font-size: 70px;
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+h1 {
+  font-size: 3em;
+  color: #ff5f9e;
+  margin: 10px 0;
+}
+
+h2 {
+  color: #6a5acd;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.message {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  font-size: 1.2em;
+  background: rgba(255,255,255,0.65);
+  padding: 25px;
+  border-radius: 25px;
+  line-height: 1.6;
+}
+
+/* Next button */
+.next-btn {
+  margin-top: 25px;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  background: #ff5f9e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  background: #ff3f8b;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 600px) {
+
+  .container{
+    padding: 30px 12px;
+  }
+
+  .vinyl{
+    font-size: 45px;
+  }
+
+  h1{
+    font-size: 2em;
+  }
+
+  h2{
+    font-size: 1em;
+  }
+
+  .message{
+    font-size: 1em;
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .next-btn{
+    padding: 10px 22px;
+    font-size: 1em;
+  }
+
+  .heart{
+    font-size: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎶 MUSIC -->
+<audio autoplay loop>
+  <source src="WhatsApp Audio 2026-01-08 at 23.07.06.mpeg" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <div class="vinyl">💿</div>
+  <h1>Happy Birthday</h1>
+  <h2>— from TV Girl —</h2>
+
+  <div class="message" id="typing"></div>
+
+  <button class="next-btn" onclick="location.href='page2.html'">
+    Next ➜
+  </button>
+</div>
+
+<script>
+/* Typing animation */
+const text = `Hey you,
+
+Happy Birthday isha
+My dearest pookiee 
+I don’t have words to describe you 
+Cause you are the irreplaceable 
+I never ever get the girl like you in my whole lyf ! You are just for me ocean and im that that point where you come into waves from at that one point where im waiting for you
+Without you i can run but with you i can run faster than ever !! You are such a blessing for me i can’t describe you
+Like whatever you did for me its enough 
+You always be my side whenever im feeling low you are the one who support me and always stay with me in my good Times or Bad times our freindship was something that even I can’t describe that cause you are the special and you are the best girl frnd i ever had !! You are the best online frnd ever had and ever exist for me 
+I never respect that frndship 
+Im the who turn that frndship into love 
+I grew feeling for you and that’s my biggest mistake that i ever did im the one who ruin this frndship ik you never accept me but im sure no one will love you more than me and no one ever do that way
+That obsession and all that but its fine 
+Khair its been a long time and now finally i had to end this friendship 
+Cause im undeserving 
+And now its quite good bye
+It isn’t easy for me to end that
+But my mental health and all that things aren’t giving permission to absorb that 
+And its been a long time and
+Whtever “No Matter What’s journey but it has to be End at one day “and now finally that day is came 
+I will miss you so much and im never forget you isha 
+You will be in my last 7 minutes
+Umh now i have to say that 
+You are the bestest bestest girl that i ever talk you are so adorable you aren’t deserve a guy like me who always trying to hurt you I hope you understand that now finally 
+Good Byyeee isha take care yourself 
+💕`;
+
+let i = 0;
+function typeText() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeText, 30);
+  }
+}
+typeText();
+
+/* Hearts */
+for (let i = 0; i < 20; i++) {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDelay = Math.random() * 5 + "s";
+  heart.style.fontSize = (14 + Math.random() * 18) + "px";
+  document.body.appendChild(heart);
+}
+
+/* Sparkles */
+for (let i = 0; i < 30; i++) {
+  let sp = document.createElement("div");
+  sp.className = "sparkle";
+  sp.style.left = Math.random() * 100 + "vw";
+  sp.style.top = Math.random() * 100 + "vh";
+  sp.style.animationDelay = Math.random() * 3 + "s";
+  document.body.appendChild(sp);
+}
+</script>
+
+</body>
+</html>

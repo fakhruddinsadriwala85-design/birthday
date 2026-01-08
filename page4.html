@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image with Back Button</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+/* Center Image Frame */
+.image-box{
+    width:340px;
+    height:340px;
+    padding:20px;
+    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    border-radius:25px;
+    box-shadow:0 25px 50px rgba(0,0,0,0.35);
+    z-index:10;
+}
+
+.image-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+/* Back Button under image */
+.back-btn{
+    margin-top:20px;
+    padding:12px 30px;
+    background:#ffffff;
+    color:#333;
+    border:none;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    transition:0.3s;
+    z-index:10;
+}
+
+.back-btn:hover{
+    background:#ff4e50;
+    color:#fff;
+}
+
+/* Falling Flowers */
+.flower{
+    position:fixed;
+    top:-10%;
+    animation: fall linear infinite;
+    pointer-events:none;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-10vh) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="image-box">
+    <img src="WhatsApp Image 2026-01-08 at 23.18.49.jpeg">
+</div>
+
+<button class="back-btn" onclick="window.location.href='index.html'">
+    ⬅ Back
+</button>
+
+<script>
+for(let i=0;i<30;i++){
+    let flower=document.createElement("div");
+    flower.className="flower";
+    flower.innerHTML="🌸";
+    flower.style.left=Math.random()*100+"vw";
+    flower.style.animationDuration=(4+Math.random()*6)+"s";
+    flower.style.fontSize=(18+Math.random()*22)+"px";
+    document.body.appendChild(flower);
+}
+</script>
+
+</body>
+</html>
